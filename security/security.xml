@@ -1,0 +1,10 @@
+<odoo>
+    <data>
+        <!--<record model="res.groups" id="designlib_admin">-->
+            <!--<field name="name">Design Library / Administrator</field>-->
+        <!--</record>-->
+        <!--<record model="res.groups" id="designlib_user">-->
+            <!--<field name="name">Design Library / User</field>-->
+        <!--</record>-->
+    </data>
+</odoo>

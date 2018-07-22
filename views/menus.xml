@@ -1,0 +1,30 @@
+<odoo>
+  <data>
+    <!-- Top menu item -->
+    <menuitem name="Plan management" id="menu_realty_plan_root"/>
+    <!-- menu categories -->
+    <menuitem name="Plan Setting" id="menu_realty_plan_plan" parent="menu_realty_plan_root" action="action_view_plan" sequence="10"/>
+    <!--[> actions <]-->
+    <!--<menuitem name="Bay Number" id="sce_designlib.menu_bay_number" parent="sce_designlib.menu_search_config"-->
+              <!--action="sce_designlib.action_window_bay_number"/>-->
+
+    <!--<menuitem name="Layout Type" id="sce_designlib.menu_layout_type" parent="sce_designlib.menu_search_config"-->
+              <!--action="sce_designlib.action_window_layout_type"/>-->
+
+    <!--<menuitem name="Area Range" id="sce_designlib.menu_area_range" parent="sce_designlib.menu_search_config"-->
+              <!--action="sce_designlib.action_window_area_range"/>-->
+    <!--[> Fault Library <]-->
+    <!--[> root <]-->
+    <!--<menuitem name="Fault Library" id="sce_designlib.menu_root_fault" groups="sce_designlib.designlib_user"/>-->
+    <!--[> backend <]-->
+    <!--<menuitem name="Falut management" id="sce_designlib.menu_fault" parent="sce_designlib.menu_root_fault" sequence="80" -->
+        <!--action="sce_designlib.action_window_fault"/>-->
+    <!--[> frontend <]-->
+    <!--<menuitem name="Search Fault" id="sce_designlib.menu_fault_search" parent="sce_designlib.menu_root_fault"-->
+              <!--action="sce_designlib.action_url_fault_search" sequence="90"/>-->
+    <!--<menuitem name="Configuration" id="sce_designlib.menu_fault_config" parent="sce_designlib.menu_root_fault"-->
+              <!--groups="sce_designlib.designlib_admin" sequence="99"/>-->
+    <!--<menuitem name="Falut Type" id="sce_designlib.menu_fault_type" parent="sce_designlib.menu_fault_config" sequence="10" -->
+        <!--action="sce_designlib.action_window_fault_type"/>-->
+  </data>
+</odoo>

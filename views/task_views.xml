@@ -1,0 +1,27 @@
+<odoo>
+  <data>
+    <!-- explicit list view definition -->
+    <record model="ir.ui.view" id="realty_plan_task_view_tree">
+      <field name="name">realty.plan.task.view.tree</field>
+      <field name="model">realty_plan.task</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="code"/>
+          <field name="name"/>
+          <field name="type_id"/>
+          <field name="grade"/>
+          <field name="owner_id"/>
+          <field name="start_date"/>
+          <field name="close_date"/>
+        </tree>
+      </field>
+    </record>
+
+    <!-- actions opening views on models -->
+    <record model="ir.actions.act_window" id="action_view_plan_task">
+      <field name="name">Tasks</field>
+      <field name="res_model">realty_plan.task</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+  </data>
+</odoo>

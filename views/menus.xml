@@ -3,7 +3,9 @@
     <!-- Top menu item -->
     <menuitem name="Plan management" id="menu_realty_plan_root"/>
     <!-- menu categories -->
-    <menuitem name="Plan Setting" id="menu_realty_plan_plan" parent="menu_realty_plan_root" action="action_view_plan" sequence="10"/>
+    <menuitem name="Dashboard" id="menu_realty_plan_dashboard" parent="menu_realty_plan_root" action="action_view_plan_dashboard" sequence="10"/>
+    <menuitem name="Plan Setting" id="menu_realty_plan_plan" parent="menu_realty_plan_root" action="action_view_plan" sequence="20"/>
+    <!--<menuitem name="Plan Excute" id="menu_realty_plan_excute" parent="menu_realty_plan_root" action="action_view_plan_execute" sequence="20"/>-->
     <!--[> actions <]-->
     <!--<menuitem name="Bay Number" id="sce_designlib.menu_bay_number" parent="sce_designlib.menu_search_config"-->
               <!--action="sce_designlib.action_window_bay_number"/>-->

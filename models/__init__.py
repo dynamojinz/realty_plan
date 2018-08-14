@@ -1,3 +1,3 @@
 # -*- coding: utf-8 -*-
-from . import plan, task
+from . import plan, task, board
 

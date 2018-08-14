@@ -17,11 +17,34 @@
       </field>
     </record>
 
+    <!-- explicit list view definition -->
+    <record model="ir.ui.view" id="realty_plan_task_view_tree_board_close">
+      <field name="name">realty.plan.task.view.tree.board.close</field>
+      <field name="model">realty_plan.task</field>
+      <field name="arch" type="xml">
+          <tree default_order="close_date" decoration-danger="close_date &lt; current_date">
+          <field name="name"/>
+          <field name="type_id"/>
+          <field name="grade"/>
+          <field name="owner_id"/>
+          <field name="close_date"/>
+        </tree>
+      </field>
+    </record>
+
     <!-- actions opening views on models -->
     <record model="ir.actions.act_window" id="action_view_plan_task">
       <field name="name">Tasks</field>
       <field name="res_model">realty_plan.task</field>
       <field name="view_mode">tree,form</field>
     </record>
+
+    <record model="ir.actions.act_window" id="action_view_plan_task_close">
+      <field name="name">Overdue Tasks</field>
+      <field name="res_model">realty_plan.task</field>
+      <field name="view_mode">tree</field>
+      <field name="view_id" ref="realty_plan_task_view_tree_board_close"/>
+    </record>
+
   </data>
 </odoo>

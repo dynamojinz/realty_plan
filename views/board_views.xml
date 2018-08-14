@@ -1,0 +1,36 @@
+<odoo>
+  <data>
+    <!-- explicit list view definition -->
+
+    <record model="ir.ui.view" id="realty_plan_board_view">
+      <field name="name">realty.plan.board</field>
+      <field name="model">realty_plan.board</field>
+      <field name="arch" type="xml">
+          <form string="Plan Dashboard" delete="false" duplicate="false">
+              <board style="1-1-1">
+                  <column>
+                      <action domain="[('state','=','open'),('owner_id','=',uid),('close_date','&lt;','today()')]" name="realty_plan.action_view_plan_task_close" string="Overdue Tasks" view_mode="list" modifiers="{}" id="action_0_0"></action>
+                  </column>
+                  <column>
+                      <action domain="[('state','=','open'),('owner_id','=',uid),('close_date','&gt;=','today()')]" name="realty_plan.action_view_plan_task_close" string="Urgent Tasks" view_mode="list" modifiers="{}" id="action_0_1"></action>
+                  </column>
+                  <column>
+                      <action domain="" name="realty_plan.action_view_plan_task" string="Begining Tasks" view_mode="list" modifiers="{}" id="action_0_2"></action>
+                  </column>
+              </board>
+          </form>
+      </field>
+    </record>
+
+    <!-- actions opening views on models -->
+    <record model="ir.actions.act_window" id="action_view_plan_board">
+      <field name="name">realty.plan.board</field>
+      <field name="res_model">realty_plan.board</field>
+      <field name="view_type">form</field>
+      <field name="view_mode">form</field>
+      <field name="useage">menu</field>
+      <field name="view_id" ref="realty_plan_board_view"/>
+	  <!--<field name="flags">{'form':{'action_buttons':False}}</field>-->
+    </record>
+  </data>
+</odoo>

@@ -29,7 +29,10 @@
     'data': [
         # 'security/security.xml',
         # 'security/ir.model.access.csv',
+        'views/board_templates.xml',
+        'views/board_views.xml',
         'views/plan_views.xml',
+        'views/task_views.xml',
         # 'views/product_templates.xml',
         # 'views/product_reports.xml',
         'views/menus.xml',

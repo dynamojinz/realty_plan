@@ -26,11 +26,26 @@ class Task(models.Model):
     # manager_id = fields.Many2one('res.users')
     start_date = fields.Date()
     close_date = fields.Date()
+    state = fields.Selection(selection=[
+        ('open', 'Open'),
+        ('closed', 'Closed'),
+        ('canceled', 'Canceled')],default='open', readonly=True)
+    # urgent_grade = fields.Selection(selection=[
+        # ('overdue', 'Overdue'),
+        # ('urgent', 'Urgent'),
+        # ('normal', 'Normal')],
+        # compute='_compute_urgent_grade',
+        # store=False,
+        # readonly=True)
 
     # Constaints
     _sql_constraints = [
             ('name_uniq', 'unique (name)', "Task name already exists!"),
             ('code_uniq', 'unique (code)', "Task code already exists!"),
             ]
+
+    # @api.depends('close_date')
+    # def _compute_urgent_grade(self):
+        # pass
 
 

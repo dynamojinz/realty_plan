@@ -8,14 +8,17 @@
       <field name="arch" type="xml">
           <form string="Plan Dashboard" delete="false" duplicate="false">
               <board style="1-1-1">
+                  <!--<column>-->
+                      <!--<action domain="[('state','=','open'),('owner_id','=',uid),('close_date','&lt;','today()')]" name="realty_plan.action_view_plan_task_close" string="Overdue Tasks" view_mode="list" modifiers="{}" id="action_0_0"></action>-->
+                  <!--</column>-->
                   <column>
-                      <action domain="[('state','=','open'),('owner_id','=',uid),('close_date','&lt;','today()')]" name="realty_plan.action_view_plan_task_close" string="Overdue Tasks" view_mode="list" modifiers="{}" id="action_0_0"></action>
+                      <action domain="[('state','=','open'),('owner_id','=',uid)]" name="realty_plan.action_view_plan_task_close" string="My Urgent Tasks" view_mode="list" modifiers="{}" id="action_0_1"></action>
                   </column>
                   <column>
-                      <action domain="[('state','=','open'),('owner_id','=',uid),('close_date','&gt;=','today()')]" name="realty_plan.action_view_plan_task_close" string="Urgent Tasks" view_mode="list" modifiers="{}" id="action_0_1"></action>
+                      <action domain="[('state','=','open'),('owner_id','=',uid),('start_date','&gt;=','today()')]" name="realty_plan.action_view_plan_task_start" string="My Begining Tasks" view_mode="list" modifiers="{}" id="action_0_2"></action>
                   </column>
                   <column>
-                      <action domain="" name="realty_plan.action_view_plan_task" string="Begining Tasks" view_mode="list" modifiers="{}" id="action_0_2"></action>
+                      <action domain="[('state','=','open')]" name="realty_plan.action_view_plan_task" string="All Open Tasks" view_mode="list" modifiers="{}" id="action_0_2"></action>
                   </column>
               </board>
           </form>

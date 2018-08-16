@@ -3,6 +3,7 @@
 from odoo import models, fields, api
 from odoo import tools, _
 from odoo.tools import pycompat
+from dateutil import relativedelta
 
 class TaskType(models.Model):
     _name = 'realty_plan.task.type'
@@ -26,6 +27,7 @@ class Task(models.Model):
     # manager_id = fields.Many2one('res.users')
     start_date = fields.Date()
     close_date = fields.Date()
+    warning_date = fields.Date(compute='_compute_warning_date', readonly=True)
     state = fields.Selection(selection=[
         ('open', 'Open'),
         ('closed', 'Closed'),
@@ -50,6 +52,12 @@ class Task(models.Model):
             ('code_uniq', 'unique (code)', "Task code already exists!"),
             ]
 
+    @api.multi
+    @api.depends('close_date')
+    def _compute_warning_date(self):
+        for record in self:
+            record.warning_date = fields.Date.from_string(record.close_date) + relativedelta.relativedelta(days=-7)
+
     # 附件相关
     @api.multi
     def _compute_attachment_count(self):
@@ -62,7 +70,7 @@ class Task(models.Model):
             record.attachment_count = attachdata.get(record.id,0)
 
     @api.multi
-    def _action_get_attachment_tree_view_attachment_files(self):
+    def action_get_attachment_tree_view_attachment_files(self):
         attachment_action = self.env.ref('base.action_attachment')
         action = attachment_action.read()[0]
         action['context'] = {'default_res_model':self._name,'default_res_id':self.ids[0], 'default_res_field':'attachment_files'}

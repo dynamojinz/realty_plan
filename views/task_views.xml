@@ -22,12 +22,13 @@
       <field name="name">realty.plan.task.view.tree.board.close</field>
       <field name="model">realty_plan.task</field>
       <field name="arch" type="xml">
-          <tree default_order="close_date" decoration-danger="close_date &lt; current_date">
+          <tree default_order="close_date" decoration-danger="close_date &lt; current_date" decoration-warning="warning_date &lt;= current_date">
               <field name="name"/>
               <field name="type_id"/>
               <field name="grade"/>
               <field name="owner_id"/>
               <field name="close_date"/>
+              <field name="warning_date" invisible="1"/>
           </tree>
       </field>
     </record>
@@ -37,7 +38,7 @@
       <field name="name">realty.plan.task.view.tree.board.start</field>
       <field name="model">realty_plan.task</field>
       <field name="arch" type="xml">
-          <tree default_order="start_date" decoration-danger="start_date == current_date">
+          <tree default_order="start_date" decoration-success="start_date == current_date">
               <field name="name"/>
               <field name="type_id"/>
               <field name="grade"/>
